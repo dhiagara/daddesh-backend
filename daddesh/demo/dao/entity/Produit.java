@@ -20,4 +20,7 @@ public class Produit {
     private String nom;
     private String category;
     private String type;
+    private String produit;
+    //private String fileName;
+    private double prix;
 }
