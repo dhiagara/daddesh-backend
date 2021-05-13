@@ -2,10 +2,7 @@ package daddesh.demo.dao.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -23,4 +20,10 @@ public class Produit {
     private String produit;
     //private String fileName;
     private double prix;
+    private Long remise;
+
+    @ManyToOne
+    @JoinColumn(name="ligne_commande", nullable=true)
+    private LigneCommande ligneCommande;
+
 }

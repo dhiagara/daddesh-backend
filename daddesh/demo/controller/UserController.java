@@ -37,10 +37,7 @@ public class UserController {
     }
     @GetMapping(path="/userImage/{email}")
     public byte[] getImageUser(@PathVariable("email") String email)throws Exception{
-        System.out.println("miawwwwwwww"+email);
         User user = userService.findByEmaill(email);
-        System.out.println("2222222miawwwwwwww"+user);
-        System.out.println("3333333333333333miawwwwwwww"+user.getImage());
         return Files.readAllBytes(Paths.get(context.getRealPath("/UserImages/")+user.getImage()));
 
     }
