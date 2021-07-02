@@ -5,6 +5,8 @@ import daddesh.demo.dao.entity.Commande;
 import daddesh.demo.dao.entity.User;
 import daddesh.demo.dao.repository.ICommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -51,5 +53,10 @@ public class CommandeDaoImpl implements ICommandeDao {
     @Override
     public List<Commande> getByUser(User user) {
         return commandeRepository.findByUser(user);
+    }
+
+    @Override
+    public Page<Commande> getAll(Pageable pageable) {
+        return commandeRepository.findAll(pageable);
     }
 }

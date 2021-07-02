@@ -13,6 +13,6 @@ public interface ILigneCommandeService {
     boolean updateLigneCommande (LigneCommande ligneCommande);
     boolean deleteLigneCommande (Long id);
     Optional<LigneCommande> findById(Long id);
-    List<LigneCommande> getByCommande(Commande commande);
-    List<LigneCommande> findByUser(User user);
+    //List<LigneCommande> getByCommande(Commande commande);
+    //List<LigneCommande> findByUser(User user);
 }

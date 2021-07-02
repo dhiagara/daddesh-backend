@@ -3,6 +3,7 @@ package daddesh.demo.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,8 +23,7 @@ public class Produit {
     private double prix;
     private Long remise;
 
-    @ManyToOne
-    @JoinColumn(name="ligne_commande", nullable=true)
-    private LigneCommande ligneCommande;
+    @OneToMany (mappedBy = "produit")
+    private List<LigneCommande> ligneCommandes;
 
 }

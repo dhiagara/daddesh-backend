@@ -1,11 +1,9 @@
 package daddesh.demo.dao.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,24 +11,17 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Commande {
+public class Favoris {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    Boolean status =false ;
-
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id", nullable=false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name="produit_id")
+    @JoinColumn(name="produit_id", nullable=false)
     private Produit produit;
-
-   @OneToMany(mappedBy = "commande",cascade = CascadeType.ALL)
-    private List<LigneCommande> ligneCommandes ;
-
-
 
 }

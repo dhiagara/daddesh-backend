@@ -1,7 +1,9 @@
 package daddesh.demo.service.impl;
 
+import daddesh.demo.Mapper.ProduitMapper;
 import daddesh.demo.dao.IProduitDao;
 import daddesh.demo.dao.entity.Produit;
+import daddesh.demo.dto.ProduitDto;
 import daddesh.demo.service.IProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,9 +18,12 @@ import java.util.Optional;
 public class ProduitServiceImpl implements IProduitService {
     @Autowired
     IProduitDao iProduitDao ;
+    @Autowired
+    ProduitMapper produitMapper;
     @Override
-    public List<Produit> getAllProduits() {
-        return iProduitDao.getAllProduits();
+    public List<ProduitDto> getAllProduits() {
+return produitMapper.listEntityToDto(iProduitDao.getAllProduits());
+
     }
 
     @Override

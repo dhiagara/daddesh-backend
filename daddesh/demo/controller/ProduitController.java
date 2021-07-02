@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import daddesh.demo.dao.entity.Images;
 import daddesh.demo.dao.entity.Produit;
 import daddesh.demo.dao.entity.User;
+import daddesh.demo.dto.ProduitDto;
 import daddesh.demo.service.IImageService;
 import daddesh.demo.service.IProduitService;
 import daddesh.demo.service.impl.UserServiceImpl;
@@ -24,7 +25,7 @@ import java.nio.file.Paths;
 import java.util.List;
 @RestController
 @RequestMapping("/produit")
-@CrossOrigin
+
 public class ProduitController {
 
 
@@ -36,7 +37,7 @@ public class ProduitController {
     private IImageService iImageService ;
 
     @GetMapping("/")
-    public List<Produit> getProduits(){
+    public List<ProduitDto> getProduits(){
         return  produitService.getAllProduits();
 
     }
@@ -71,7 +72,8 @@ public class ProduitController {
         for (MultipartFile fil:file
              ) {
             String filename = fil.getOriginalFilename();
-            String newFileName = FilenameUtils.getBaseName(filename)+"."+FilenameUtils.getExtension(filename);
+            Double x =Math.random()*5000;
+            String newFileName = FilenameUtils.getBaseName(filename)+x.toString()+"."+FilenameUtils.getExtension(filename);
             File serverFile = new File (context.getRealPath("/Images/"+File.separator+newFileName));
             try
             {

@@ -16,7 +16,6 @@ public class BlogComment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String contenue;
 
     @ManyToOne(cascade=CascadeType.REMOVE)

@@ -1,10 +1,7 @@
 package daddesh.demo.dao.entity;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
 import javax.persistence.*;
-import java.util.List;
+
 
 @Getter
 @Setter
@@ -13,9 +10,21 @@ import java.util.List;
 @Builder
 @Entity
 public class LigneCommande {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
+    @EmbeddedId
+    private CommandeProduitKey id;
+
+    @ManyToOne
+    @MapsId("idCommande")
+    @JoinColumn(name = "commande_id")
+    private  Commande commande ;
+
+    @ManyToOne
+    @MapsId("idProduit")
+    @JoinColumn(name = "id_produit")
+    private  Produit produit ;
+
+
     private String nom;
     private String prenom;
     private String emailId;
@@ -23,23 +32,9 @@ public class LigneCommande {
     private String telephone;
     private String adresse;
     private String codePostal;
-    private  Long numCommande ;
+    private Long numCommande ;
 
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private User user;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Commande_id")
-    private Commande commande;
-
-    @OneToMany(mappedBy="ligneCommande", cascade=CascadeType.ALL, orphanRemoval=true)
-    @JsonIgnore
-    private List<Produit> produit;
-
-
-
-
+    private  double prix ;
 
 
 }

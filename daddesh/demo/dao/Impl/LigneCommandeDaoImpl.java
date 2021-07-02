@@ -48,13 +48,13 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
         return ligneCommandeRepository.findById(id);
     }
 
-    @Override
+   /* @Override
     public List<LigneCommande> getByCommande(Commande commande) {
         return ligneCommandeRepository.findByCommande(commande);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public List<LigneCommande> findByUser(User user) {
         return null;
-    }
+    }*/
 }

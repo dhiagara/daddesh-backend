@@ -12,4 +12,5 @@ public interface IBlogService {
     boolean deleteBlog (Long id);
     Blog findById(Long id);
     public byte[] getBlogImage(Long id) throws Exception;
+
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ILigneCommandeRepository extends JpaRepository<LigneCommande,Long> {
 
-    List<LigneCommande> findByCommande(Commande commande);
-    List<LigneCommande> findByUser(User user);
+    //List<LigneCommande> findByCommande(Commande commande);
+    //List<LigneCommande> findByUser(User user);
 
 }
